@@ -10,7 +10,7 @@
 // legal 
 // let firstName = "shoaib" camelcase 
 console.log(firstName)
-
+alert("hello world ")
 // Allowed special characters  
 // let $namewithdolor = "dolor"
 
