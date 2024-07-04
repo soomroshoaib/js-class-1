@@ -9,8 +9,8 @@
 
 // legal 
 // let firstName = "shoaib" camelcase 
-console.log(firstName)
-alert("hello world ")
+// console.log(firstName)
+// alert("hello world ");
 // Allowed special characters  
 // let $namewithdolor = "dolor"
 
@@ -25,9 +25,9 @@ alert("hello world ")
 // any latter word or sentence is string in javascript
 //  Number Boolean 
 
-let num = "9";
+// let num = "9";
 
-alert(typeof(num))
+// alert(typeof(num))
 
 // git init 
 // git add indexedDB.js
