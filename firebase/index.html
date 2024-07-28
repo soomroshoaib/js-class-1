@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="sign-up">
+        <h1>sign-up</h1>
+       <form action="" onsubmit="signup(event)">
+        <input type="text" name="" id="email">
+        <input type="password" name="" id="password">
+        <button type="submit">Submit</button>
+        <button onclick="google()"> Login with google </button>
+       </form>
+    </div>
+    <div class="Login">
+        <h1>Login</h1>
+        <form action="" onsubmit="Login(event)">
+         <input type="text" name="" id="Login_email">
+         <input type="password" name="" id="Login_password">
+         <button type="submit">login</button>
+         <button onclick="logout()">LogOut</button>
+        </form>
+     </div>
+    <div class="wellcome-box">
+        <h1>
+            wellcome-box 
+        </h1>
+    </div>
+
+    <div class="center">
+        <h2>your account detail</h2>
+        <div class="userdetails">
+
+        </div>
+
+    </div>
+
+    <div id="model">
+        <div><h4>add your information profile </h4></div>
+        <form action="" id="editsprofile" onsubmit="updateuser(event)">
+            <input type="text" name="profileEmail" placeholder="email" >
+            <input type="text" name="name"  placeholder="name">
+            <input type="number" name="phone"  placeholder="phone">
+            <input type="text" name="specialty"  placeholder="specialty">
+            <input type="text" name="portfolioUrl" placeholder="portfolioUrl">
+            <input type="text" name="experience" placeholder="experience  ">
+            
+        
+            <button >submit</button>
+            
+           </form>
+    </div>
+  
+
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyB-fRsNlES_nXiOSvIvKtWCaslGJdvxefg",
+    authDomain: "login-testing-4672d.firebaseapp.com",
+    projectId: "login-testing-4672d",
+    storageBucket: "login-testing-4672d.appspot.com",
+    messagingSenderId: "376185121102",
+    appId: "1:376185121102:web:d1a5f76fe1525884a3561f",
+    measurementId: "G-DLY47JF2BK" 
+  };
+
+  // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+  
+    </script>
+     <script src="./app.js"></script>
+     <script src="./script/fitrstore-db.js"></script>
+</body>
+
+</html>

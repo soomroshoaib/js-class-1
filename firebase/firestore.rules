@@ -1,0 +1,9 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/UqN2TlMCerbBMRabtA3kOUeqOYB2{
+      allow read : if true
+    }  
+  }
+}
