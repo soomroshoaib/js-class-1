@@ -2,8 +2,9 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /users/UqN2TlMCerbBMRabtA3kOUeqOYB2{
-      allow read : if true
+    match /users/{userID}{
+      allow read : if request.auth.uid == userID  || request.auth.uid == "Aly77a6FUTZ95Hzm4KL4R0XSYhS2";
+      allow write : if request.auth.uid == userID;
     }  
   }
 }

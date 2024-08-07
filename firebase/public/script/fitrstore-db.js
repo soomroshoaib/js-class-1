@@ -1,3 +1,7 @@
+
+
+
+
 const userDetial = document.querySelector(".userdetails");
 const editsProfile = document.querySelector("#editsprofile");
 
@@ -56,12 +60,17 @@ async function getuserinfoRealtime(userID) {
                  
 
                  `
-                 editsProfile["name"].value =  userinfo.name,
+                 editsProfile["name"].value =  userinfo.name
                  editsProfile["profileEmail"].value = userinfo.email
                  editsProfile["phone"].value = userinfo.phone
                   editsProfile["specialty"].value = userinfo.specialty
                   editsProfile["portfolioUrl"].value = userinfo.portfolioUrl
                   editsProfile["experience"].value = userinfo.experience
+
+
+                  if(firebase.auth().currentUser.photoURL){
+                    document.querySelector("#propic").src = firebase.auth().currentUser.photoURL
+                  }
 
 
 
@@ -90,4 +99,37 @@ function updateuser(e) {
     portfolioUrl: editsProfile["portfolioUrl"].value,
     experience: editsProfile["experience"].value,
   });
+}
+
+ function uploadimage (e){
+  e.preventDefault()
+  // console.log(e.target.files[0])
+  const uid = firebase.auth().currentUser.uid;
+  const fileRef = firebase.storage().ref().child(`/users/${uid}/profile`)
+  const uploadTask =  fileRef.put(e.target.files[0])
+
+  uploadTask.on('state_changed', 
+    (snapshot) => {
+      // Observe state change events such as progress, pause, and resume
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+     if(progress=='100') alert("uploaded")
+    }, 
+    (error) => {
+      // Handle unsuccessful uploads
+      console.log(error)
+    }, 
+    () => {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+      uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+        console.log('File available at', downloadURL);
+        firebase.auth().currentUser.updateProfile({
+          
+          photoURL: downloadURL
+        }); 
+      });
+    }
+  );
 }

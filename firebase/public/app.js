@@ -121,3 +121,7 @@ async function google() {
 //firbase login
 //firebase projects:list
 //firebase deploy --only firebase:roules
+
+
+//firebase - storage useing image video audio
+firebase deploy --only hosting 
