@@ -35,6 +35,7 @@
 
     <div class="center">
         <h2>your account detail</h2>
+        <img id="propic" class="circle" src="./script/png-transparent-photo-image-person-icon-images.png" height="auto" width="50%" alt="no-img-text">
         <div class="userdetails">
 
         </div>
@@ -43,7 +44,11 @@
 
     <div id="model">
         <div><h4>add your information profile </h4></div>
+        <input type="file" accept="image/*" onchange="uploadimage(event)">
+
+
         <form action="" id="editsprofile" onsubmit="updateuser(event)">
+
             <input type="text" name="profileEmail" placeholder="email" >
             <input type="text" name="name"  placeholder="name">
             <input type="number" name="phone"  placeholder="phone">
@@ -61,6 +66,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
     <script>
   const firebaseConfig = {
     apiKey: "AIzaSyB-fRsNlES_nXiOSvIvKtWCaslGJdvxefg",
